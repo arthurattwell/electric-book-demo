@@ -48,7 +48,7 @@ nav-source: nav
 # so this is off (false) by default. Change to true to load MathJax.
 # See http://docs.mathjax.org/en/latest/configuration.html for details.
 # MathJax scripts are linked from the head-elements include.
-mathjax-enabled: false
+mathjax-enabled: true
 
 # --------------------------------------------
 # CHANGE THESE SETTINGS ONLY IF/WHEN NECESSARY
