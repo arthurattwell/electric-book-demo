@@ -62,6 +62,7 @@ $color-mid: #9c9c9c;
 $color-accent: #000000;
 $color-links: #5f738c;
 $color-buttons: #5f738c;
+$color-buttons-hover: darken( $color-buttons, 20% );
 $color-highlight: #ffd54d;
 
 // Some features rearrange at certain screen sizes.
@@ -82,6 +83,10 @@ $hyphenate-after: 3; // Minimum letters on new line after hyphen
 $hyphenate-before: 3; // Minimum letters at end of line before hyphen
 $hyphenate-lines: 1; // Maximum number of consecutive lines ending with hyphens
 
+// Text dividers
+// For breaks created with *** in markdown.
+$text-divider: ""; // Empty leaves space. \2022 is a bullet
+
 // Footer
 $footer-text-color: $color-text-main;
 $footer-background-color: $color-accent;
@@ -95,10 +100,14 @@ $masthead-border-color: $color-light;
 // Website sidebar/navigation
 $nav-bar-text-size: 0.8em;
 $nav-bar-item-collapse: false; // Does the nav list fully expand, or collapse until mouseover?
-$nav-bar-children-prompt: "+"; // \2026 is an ellipsis (…)
-$nav-bar-children-prompt-hide: "-";
+$nav-bar-close: "\00D7"; // &times; ×
+$nav-bar-children-prompt: "+";
+$nav-bar-children-prompt-hide: "\2212"; // \2212 is an actual minus sign
 $nav-bar-scrollbar: true;
 $nav-bar-width: 15em;
+$nav-bar-fixed: false;
+$nav-bar-label-color: $color-mid;
+$nav-bar-label-background-color: $masthead-background-color;
 $nav-bar-border-color: $color-light;
 $nav-bar-background-color: white;
 $nav-bar-search-background-color: white;
@@ -106,6 +115,7 @@ $nav-bar-parent-background-color: white;
 $nav-bar-parent-text-color: black;
 $nav-bar-parent-hover-color: #4f89d2;
 $nav-bar-parent-text-hover-color: white;
+$nav-bar-children-prompt-color: $color-mid;
 $nav-bar-child-background-color: $color-light;
 $nav-bar-child-text-color: black;
 $nav-bar-child-hover-color: #4f89d2;

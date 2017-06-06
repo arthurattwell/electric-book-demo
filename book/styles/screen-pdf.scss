@@ -39,6 +39,7 @@ $trim: 0;
 $crop-marks: none; // crop | none
 
 // Colours
+$colorspace: rgb; // auto | none | rgb | cmyk | gray
 $color-text-main: cmyk(0,0,0,1);
 $color-text-secondary: cmyk(0,0,0,0.8);
 $color-background: white;
@@ -49,6 +50,13 @@ $color-links: inherit;
 $color-highlight: #ffd54d;
 
 // PDF file setup options
+// Options for pdf-profile: PDF/A-1b, PDF/A-3b, PDF/X-1a:2001, PDF/X-1a:2003, PDF/X-3:2002, PDF/X-3:2003, PDF/X-4
+// Options for color profile:
+// - From eci.org: PSOcoated_v3.icc, PSOuncoated_v3_FOGRA52.icc
+// - From color.org: sRGB_v4_ICC_preference.icc, sRGB_v4_ICC_preference_displayclass.icc
+// Add other ICC profiles to /assets/profiles
+$pdf-profile: "PDF/A-3b";
+$color-profile: "sRGB_v4_ICC_preference_displayclass.icc";
 $black-ink: true; // true or rich (true for pure black or rich for rich black)
 
 // We name font variables for two categories:
@@ -56,10 +64,10 @@ $black-ink: true; // true or rich (true for pure black or rich for rich black)
 // - 'display' fonts are used for headings and similar short-string features.
 // For each category, we set a main font and a secondary font, allowing up to four fonts.
 // Finally, we set a fifth, monospace font for elements like computer code.
-$font-text-main: "Crimson Text", serif;
+$font-text-main: "Crimson", serif;
 $font-text-secondary: "Roboto Condensed", sans-serif;
 $font-display-main: "Roboto Condensed", sans-serif;
-$font-display-secondary: "Crimson Text", serif;
+$font-display-secondary: "Crimson", serif;
 $font-code: "Inconsolata", monospace;
 
 // Finally, we set variables related to text flow.
@@ -86,6 +94,10 @@ $hyphenate-after: 3; // Minimum letters on new line after hyphen
 $hyphenate-before: 3; // Minimum letters at end of line before hyphen
 $hyphenate-lines: 2; // Preferred maximum number of consecutive lines ending with hyphens
 
+// Text dividers
+// For breaks created with *** in markdown.
+$text-divider: ""; // Empty leaves space. \2022 is a bullet
+
 // Should chapters start on a right-hand page (recto) or on any page?
 // This setting applies to the frontmatter, dedication-page, epigraph-page and chapter page styles.
 // (The halftitle-page, title-page and contents-page page styles always start on a recto.)
@@ -108,7 +120,7 @@ $frontmatter-reference-style: lower-roman; // lower-roman, decimal, see http://w
 //   Set this body title attribute with `header: Your Title` in a file's YAML frontmatter.
 //   If you don't set a page header in YAML, string(page-header) will fallback to the page title.
 // * For the title attribute of the last h1 (increment to h2, h3, h4, h5, h6 as needed): string(h1-title, last)
-//   By default, this uses the teading text, unless you manually set a title attribute for a given heading.
+//   By default, this uses the heading text, unless you manually set a title attribute for a given heading.
 //   In kramdown, use {: title="Your Title Here" } after the heading to set the title manually.
 // * For the last h1 (increment to h2, h3, h4, h5, h6 as needed): string(h1-text, last)
 //   Instead of last (last on page) you can also use first (first on page) or start (string set on previous page).
@@ -129,7 +141,7 @@ $verso-bottom-left-corner: normal;
 $verso-bottom-right-corner: normal;
 
 // Recto (right-hand-page)
-$recto-top: string(h2-title, last);
+$recto-top: string(h2-text, last);
 $recto-top-left: normal;
 $recto-top-right: normal;
 $recto-top-left-corner: normal;
@@ -153,7 +165,7 @@ $verso-bottom-left-corner-frontmatter: normal;
 $verso-bottom-right-corner-frontmatter: normal;
 
 // Recto (right-hand-page) for .frontmatter pages (`style: frontmatter`)
-$recto-top-frontmatter: string(h2-title, last);
+$recto-top-frontmatter: string(h2-text, last);
 $recto-top-left-frontmatter: normal;
 $recto-top-right-frontmatter: normal;
 $recto-top-left-corner-frontmatter: normal;
